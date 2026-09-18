@@ -13,6 +13,8 @@ spec:
       labels:
         app: todo-dashboard
     spec:
+      imagePullSecrets:
+          - name: dockerhub-secret
       containers:
         - name: todo-dashboard
           image: todo-dashboard:0

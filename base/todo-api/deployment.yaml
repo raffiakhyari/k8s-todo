@@ -13,6 +13,8 @@ spec:
       labels:
         app: todo-api
     spec:
+      imagePullSecrets:
+          - name: dockerhub-secret
       containers:
         - name: todo-api
           image: todo-api:0
