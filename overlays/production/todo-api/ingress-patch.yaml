@@ -1,9 +1,3 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-
-metadata:
-  name: todo-api
-
-spec:
-  rules:
-    - host: api.todo.local
+- op: replace
+  path: /spec/rules/0/host
+  value: api.todo.local

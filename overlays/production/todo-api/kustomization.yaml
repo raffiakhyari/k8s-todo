@@ -10,4 +10,9 @@ images:
     newTag: "0"
 
 patches:
-  - path: ingress-patch.yaml
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: todo-api
+    path: ingress-patch.yaml
