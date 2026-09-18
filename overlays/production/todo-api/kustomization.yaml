@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/todo-api
+
+images:
+  - name: todo-api
+    newName: raffiakhyari/todo-api
+    newTag: "0"
+
+patches:
+  - path: ingress-patch.yaml

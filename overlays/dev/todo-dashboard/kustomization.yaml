@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/todo-dashboard
+
+images:
+  - name: todo-dashboard
+    newName: raffiakhyari/todo-dashboard-dev
+    newTag: "0"
+
+patches:
+  - path: ingress-patch.yaml

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: todo-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-dashboard
+  template:
+    metadata:
+      labels:
+        app: todo-dashboard
+    spec:
+      containers:
+        - name: todo-dashboard
+          image: todo-dashboard:0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 20
