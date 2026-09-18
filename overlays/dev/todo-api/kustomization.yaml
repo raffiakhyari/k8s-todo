@@ -16,3 +16,5 @@ patches:
       kind: Ingress
       name: todo-api
     path: ingress-patch.yaml
+
+  - path: configmap-patch.yaml
